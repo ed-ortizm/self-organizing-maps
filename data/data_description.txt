@@ -1,0 +1,6 @@
+The following data must be downloaded to this repo to run the corresponding scripts
+
+1. Data available at: https://scikit-learn.org/stable/datasets/toy_dataset.html
+
+    - Optical recognition of handwritten digits dataset
+     
