@@ -10,7 +10,7 @@ t0 = time.time()
 ################################################################################
 # loading data from configuration file
 parser = ConfigParser(interpolation=ExtendedInterpolation())
-parser.read('hand_written.ini')
+parser.read('digits.ini')
 ############################################################################
 # relevant directories
 data_directory = parser.get('directories', 'data')
@@ -33,9 +33,9 @@ som.fit(digits)
 # inspecting trained model
 ############################################################################
 # Understanding U matrix
-u_matrix = som.get_u_matrix()
-np.save((f"{data_directory}/"
-    f"u_matrix_{number_rows}x{number_columns}.npy"), u_matrix)
+# u_matrix = som.get_u_matrix()
+# np.save((f"{data_directory}/"
+#     f"u_matrix_{number_rows}x{number_columns}.npy"), u_matrix)
 ############################################################################
 # inspect the clusters
 clusters = som.get_clusters(digits)
@@ -49,6 +49,9 @@ for index, cluster in enumerate(clusters):
 
 np.save(f"{data_directory}/digits_clusters.npy", clusters_array)
 ################################################################################
+# check archetype
+archetype = som.unsuper_som_
+np.save(f"{data_directory}/archetypes.npy", archetype)
 ################################################################################
 t1 = time.time()
 print(f"running time {t1 -t0}")
